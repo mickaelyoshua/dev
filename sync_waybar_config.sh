@@ -1,17 +1,17 @@
 #!/bin/bash
 
-# A script to synchronize the hypr configuration from a git repo
-# to the local ~/.config/hypr directory.
+# A script to synchronize the waybar configuration from a git repo
+# to the local ~/.config/waybar directory.
 
 # --- Configuration ---
 # Source directory (your git repo)
-SOURCE_DIR="/home/yoshua/personal/dev/.config/hypr"
+SOURCE_DIR="/home/yoshua/personal/dev/.config/waybar"
 
 # Destination directory (your local config)
-DEST_DIR="$HOME/.config/hypr"
+DEST_DIR="$HOME/.config/waybar"
 
 # Parent directory for backups
-BACKUP_PARENT_DIR="$HOME/.config/hypr_backups"
+BACKUP_PARENT_DIR="$HOME/.config/waybar_backups"
 # --- End of Configuration ---
 
 # Ensure the script exits if any command fails
@@ -36,18 +36,16 @@ echo "==> Creating backup of current configuration in: $BACKUP_DIR"
 mkdir -p "$BACKUP_DIR"
 
 # 4. Use rsync to synchronize the directories.
-#    -a: archive mode (preserves permissions, ownership, etc.)
-#    -v: verbose output
-#    --delete: delete files in dest that are not in source
-#    --backup: creates backups of overwritten files
-#    --backup-dir: specifies where to store the backups
-#    --exclude='.git': prevents copying the git repository data
 echo "==> Synchronizing files from '$SOURCE_DIR' to '$DEST_DIR'..."
-
 rsync -av --delete --backup --backup-dir="$BACKUP_DIR" --exclude='.git' "$SOURCE_DIR/" "$DEST_DIR/"
 
-echo "✅ Success! Your Hyprland configuration has been updated from the repository."
+echo "✅ Success! Your Waybar configuration has been updated from the repository."
 echo "A backup of the previous state was saved to '$BACKUP_DIR'."
 
-# Reload
-hyprctl reload
+# 5. Reload Waybar by sending a signal to apply changes
+if pgrep -x "waybar" > /dev/null; then
+    echo "==> Reloading Waybar..."
+    killall -SIGUSR2 waybar
+fi
+
+echo "✅ Done."
