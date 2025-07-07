@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 require("yoshua.settings")
 require("yoshua.lazy")
 require("yoshua.maps")
