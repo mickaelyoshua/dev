@@ -33,6 +33,8 @@ return {
 				"lua_ls",
 				"pyright",
 				"gopls",
+				"markdown_oxide",
+				"clangd",
 			},
 		})
 

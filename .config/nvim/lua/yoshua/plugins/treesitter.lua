@@ -1,3 +1,4 @@
+-- Better highlight of code
 return {
     "nvim-treesitter/nvim-treesitter",
 	branch = 'master',

@@ -1,3 +1,4 @@
+-- Keep the cursor line centered
 return {
 	'arnamak/stay-centered.nvim',
 

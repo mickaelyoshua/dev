@@ -1,3 +1,4 @@
+-- Beautify the notifications
 return {
 	"folke/noice.nvim",
 	event = "VeryLazy",

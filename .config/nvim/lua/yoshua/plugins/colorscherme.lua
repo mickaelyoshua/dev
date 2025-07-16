@@ -1,3 +1,4 @@
+-- Colorscheme for Neovim
 return {
     "EdenEast/nightfox.nvim",
     lazy = false,
@@ -7,7 +8,7 @@ return {
 
 		require('nightfox').setup({
 			options = {
-				transparent = true,
+				transparent = false,
 			}
 		})
     end

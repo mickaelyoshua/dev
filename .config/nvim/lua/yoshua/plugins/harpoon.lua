@@ -1,3 +1,4 @@
+-- To quikly switch between files with a pop up menu
 return {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
