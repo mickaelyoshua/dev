@@ -16,6 +16,7 @@ CONFIGS_TO_SYNC=(
     "waybar"
     "nvim"
     "kitty"
+    "tmux"
 )
 # --- End of Configuration ---
 
