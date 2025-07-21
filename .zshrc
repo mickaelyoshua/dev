@@ -104,7 +104,7 @@ export ARCHFLAGS="-arch $(uname -m)"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # My alias
-alias v=nvim
+alias vim=nvim
 
 # set GO path
 export GOPATH=$HOME/go 
