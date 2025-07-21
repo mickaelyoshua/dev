@@ -17,6 +17,7 @@ CONFIGS_TO_SYNC=(
     "nvim"
     "kitty"
     "tmux"
+    "zsh"
 )
 # --- End of Configuration ---
 

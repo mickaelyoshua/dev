@@ -15,6 +15,24 @@ fi
 
 APP_NAME="$1"
 
+# Special case for .zshrc
+if [ "$APP_NAME" = "zsh" ]; then
+    SOURCE_FILE="$HOME/.zshrc"
+    DEST_FILE="/home/yoshua/personal/dev/.zshrc"
+
+    # Check if source file exists
+    if [ ! -f "$SOURCE_FILE" ]; then
+        echo "Error: Source file not found at '$SOURCE_FILE'" >&2
+        exit 1
+    fi
+
+    echo "==> Copying '$SOURCE_FILE' to '$DEST_FILE'..."
+    rsync -av "$SOURCE_FILE" "$DEST_FILE"
+    echo "✅ Success! Your Zsh configuration has been saved to the repository."
+    echo "✅ Done."
+    exit 0
+fi
+
 # --- Configuration ---
 # The local config directory to copy from.
 SOURCE_DIR="$HOME/.config/$APP_NAME"
