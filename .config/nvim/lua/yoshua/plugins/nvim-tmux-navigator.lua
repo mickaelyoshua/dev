@@ -1,3 +1,4 @@
+-- Navigate on Tmux with Neovim
 return {
 	"christoomey/vim-tmux-navigator",
 	lazy = false,
